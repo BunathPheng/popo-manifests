@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: popo
+  labels:
+    app: popo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: popo
+  template:
+    metadata:
+      labels:
+        app: popo
+    spec:
+      containers:
+        - name: popo
+          image: docker.io/phengbunath/popo:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
